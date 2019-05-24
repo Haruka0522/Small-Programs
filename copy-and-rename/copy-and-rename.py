@@ -2,11 +2,12 @@ import glob
 import shutil
 
 directry =  glob.glob("./*")
-directry.remove(input("enter except directry"))
+a = input("enter except directry")
+directry.remove(a)
 save_dir = input("enter save directry")
 num = int(input("serial num"))
-save_name = input("enter save name")
 for i in directry:
-    files = glob.glob(directry + "/*.jpg")
+    files = glob.glob(i + "/*.jpg")
     for j in files:
-        shutil.copy(i+j,save_dir+"/"+save_name+num+".jpg")
+        shutil.copy(j,save_dir+"neg"+str(num)+".jpg")
+        num += 1
