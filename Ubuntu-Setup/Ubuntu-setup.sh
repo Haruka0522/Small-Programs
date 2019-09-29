@@ -7,9 +7,19 @@ git config --global user.name Haruka0522
 git config --global user.email harukapc1@gmail.com
 git config --global color.ui "auto"
 
+#Vim
+sudo apt update
+sudo apt install vim
+wget https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh
+mkdir ./.vim/
+chmod +x ./installer.sh
+./installer.sh ~/.vim/
+
 #dotfileの設定
+cd ~
 git clone https://github.com/Haruka0522/dotfiles/
 cd dotfile
+chmod +x ./setup.sh
 ./setup.sh
 cd ~
 
