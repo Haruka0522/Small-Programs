@@ -39,6 +39,12 @@ sudo apt update
 sudo apt install paper-cursor-theme
 sudo apt install gnome-tweaks
 
+#Google Chrome
+sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+sudo wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+sudo apt update
+sudo apt install google-chrome-stable
+
 #bashからzshに変更
 sudo apt install zsh
 chsh
