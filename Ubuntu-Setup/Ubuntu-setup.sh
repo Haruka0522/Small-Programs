@@ -27,8 +27,7 @@ cd ~
 sudo apt install sl
 
 #pipのインストール
-sudo apt install pip
-sudo apt install pip3
+sudo apt install python3-pip
 
 #OpenCV3.2.4.16+contribのインストール
 pip3 install opencv-python==3.4.2.16
