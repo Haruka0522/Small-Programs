@@ -62,6 +62,14 @@ sudo mv arduino-1.8.9 /opt/
 cd /opt/arduino-1.8.9/
 sudo ./install.sh
 
+#Teensyduino
+cd ~/ダウンロード
+wget http://www.pjrc.com/teensy/49-teensy.rules
+sudo mv 49-teensy.rules /etc/udev/rules.d
+wget https://www.pjrc.com/teensy/td_147/TeensyduinoInstall.linux64
+chmod +x TeensyduinoInstall.linux64
+./TeensyduinoInstall.linux64
+
 #bashからzshに変更
 sudo apt install zsh
 chsh
