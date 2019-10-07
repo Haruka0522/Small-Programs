@@ -54,6 +54,14 @@ sudo wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo a
 sudo apt update
 sudo apt install google-chrome-stable
 
+#Arduino IDE 1.8.9
+cd ~/ダウンロード
+wget https://www.arduino.cc/download_handler.php?f=/arduino-1.8.9-linux64.tar.xz
+tar Jxvf arduino-1.8.9-linux64.tar.xz
+sudo mv arduino-1.8.9 /opt/
+cd /opt/arduino-1.8.9/
+sudo ./install.sh
+
 #bashからzshに変更
 sudo apt install zsh
 chsh
