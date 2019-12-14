@@ -33,6 +33,12 @@ sudo apt install python3-pip
 pip3 install opencv-python==3.4.2.16
 pip3 install opencv-contrib-python==3.4.2.16
 
+#PythonのライブラリRequestsのインストール
+pip3 install requests
+
+#Pythonのライブラリbeautifulsoup4のインストール
+pip3 install beautifulsoup4
+
 #neofetchのインストール
 sudo apt install neofetch
 
