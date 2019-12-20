@@ -39,6 +39,13 @@ pip3 install requests
 #Pythonのライブラリbeautifulsoup4のインストール
 pip3 install beautifulsoup4
 
+#Pythonのライブラリgmpyのインストール
+sudo apt install python-dev libgmp3-dev
+pip3 install gmpy
+
+#Pythonのライブラリsympyのインストール
+pip3 install sympy
+
 #neofetchのインストール
 sudo apt install neofetch
 
