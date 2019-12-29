@@ -46,6 +46,9 @@ pip3 install gmpy
 #Pythonのライブラリsympyのインストール
 pip3 install sympy
 
+#Pythonのライブラリmatplotlibのインストール
+pip3 install matplotlib
+
 #neofetchのインストール
 sudo apt install neofetch
 
