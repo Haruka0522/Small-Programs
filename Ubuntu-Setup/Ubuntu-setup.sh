@@ -49,6 +49,14 @@ pip3 install sympy
 #Pythonのライブラリmatplotlibのインストール
 pip3 install matplotlib
 
+#Jupyter Notebook系のインストール(python3のみ)
+pip3 install pandas
+pip3 install sklearn
+sudo apt install jupyter-notebook -y
+pip3 install chainer
+pip3 install tensorflow
+pip3 install pandas-ml
+
 #neofetchのインストール
 sudo apt install neofetch
 
