@@ -49,6 +49,9 @@ pip3 install sympy
 #Pythonのライブラリmatplotlibのインストール
 pip3 install matplotlib
 
+#Pythonのライブラリseleniumのインストール
+pip3 install selenium
+
 #Jupyter Notebook系のインストール(python3のみ)
 pip3 install pandas
 pip3 install sklearn
