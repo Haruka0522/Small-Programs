@@ -78,6 +78,13 @@ sudo wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo a
 sudo apt update
 sudo apt install google-chrome-stable
 
+#ChromeDriverのインストール
+cd /tmp/
+curl -O https://chromedriver.storage.googleapis.com/80.0.3987.16/chromedriver_linux64.zip
+unzip chromedriver_linux64.zip
+sudo mv chromedriver /usr/local/bin/
+rm chromedriver
+
 #Arduino IDE 1.8.9
 cd ~/ダウンロード
 wget https://www.arduino.cc/download_handler.php?f=/arduino-1.8.9-linux64.tar.xz
