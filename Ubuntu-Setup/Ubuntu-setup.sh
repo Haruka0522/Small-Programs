@@ -15,6 +15,12 @@ mkdir ./.vim/
 chmod +x ./installer.sh
 ./installer.sh ~/.vim/
 
+#pythonのコードチェックツール
+pip3 install flake8
+
+#pythonの自動修正ツール
+pip3 install autopep8
+
 #dotfileの設定
 cd ~
 git clone https://github.com/Haruka0522/dotfiles/
