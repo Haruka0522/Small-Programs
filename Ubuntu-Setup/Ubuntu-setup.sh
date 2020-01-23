@@ -66,6 +66,9 @@ pip3 install chainer
 pip3 install tensorflow
 pip3 install pandas-ml
 
+#colordiffのインストール
+sudo apt install colordiff
+
 #neofetchのインストール
 sudo apt install neofetch
 
