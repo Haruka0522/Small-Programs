@@ -69,6 +69,17 @@ pip3 install pandas-ml
 #colordiffのインストール
 sudo apt install colordiff
 
+#tesseractのインストール
+sudo add-apt-repository ppa:alex-p/tesseract-ocr
+sudo apt update
+sudo apt install -y tesseract-ocr
+sudo apt install -y libtesseract-dev
+sudo apt install -y tesseract-ocr-jpn  tesseract-ocr-jpn-vert
+sudo apt install -y tesseract-ocr-script-jpan tesseract-ocr-script-jpan-vert
+
+#pytesseractのインストール
+pip3 install pytesseract
+
 #neofetchのインストール
 sudo apt install neofetch
 
