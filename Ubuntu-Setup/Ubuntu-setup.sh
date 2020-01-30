@@ -140,4 +140,5 @@ chsh
 #自分でやることを表示
 echo "Tweaksからテーマのアプリケーション、カーソル、アイコンを選択してね"
 echo "ターミナルにの色や透過度を設定してね"
-
+echo "設定>オンラインアカウント>Googleを接続してGoogleDriveを同期させてね"
+echo "https://karaas.hatenablog.jp/entry/2018/11/29/141733を参考にOnedriveも同期させてね"
