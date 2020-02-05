@@ -133,6 +133,19 @@ sudo apt install apt-transport-https
 sudo apt update
 sudo apt install code
 
+#pyenvのインストール
+git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+echo 'eval "$(pyenv init -)"' >> ~/.zshrc
+source ~/.bashrc
+
+#pyenv-virtualenvのインストール
+git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
+echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.zshrc
+echo export PYENV_VIRTUALENV_DISABLE_PROMPT=1 >> ~/.zshrc
+source ~/.zshrc
+
 #bashからzshに変更
 sudo apt install zsh
 chsh
