@@ -146,6 +146,13 @@ echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.zshrc
 echo export PYENV_VIRTUALENV_DISABLE_PROMPT=1 >> ~/.zshrc
 source ~/.zshrc
 
+#protobufのインストール
+curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v3.11.3/protoc-3.11.3-linux-x86_64.zip
+unzip protoc-3.11.3-linux-x86_64.zip
+sudo mv bin/* /usr/local/bin/
+sudo mv include/* /usr/local/include/
+rm -rf protoc-3.11.3-linux-x86_64.zip bin include
+
 #bashからzshに変更
 sudo apt install zsh
 chsh
