@@ -4,6 +4,9 @@ sudo apt update
 #curlのインストール
 sudo apt install curl
 
+#unzipのインストール
+sudo apt install unzip
+
 #Gitの設定
 sudo apt install git
 git config --global user.name Haruka0522
