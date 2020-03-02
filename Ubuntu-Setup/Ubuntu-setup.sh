@@ -167,6 +167,9 @@ chsh
 gsettings set org.gnome.desktop.interface clock-show-date true
 gsettings set org.gnome.desktop.interface clock-show-seconds true
 
+#Wiresharkのインストール
+sudo apt install wireshark
+
 #自分でやることを表示
 echo "Tweaksからテーマのアプリケーション、カーソル、アイコンを選択してね"
 echo "ターミナルにの色や透過度を設定してね"
