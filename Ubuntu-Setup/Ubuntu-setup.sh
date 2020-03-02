@@ -157,6 +157,10 @@ rm -rf protoc-3.11.3-linux-x86_64.zip bin include
 sudo apt install zsh
 chsh
 
+#GNOME Shellの時刻表示の設定
+gsettings set org.gnome.desktop.interface clock-show-date true
+gsettings set org.gnome.desktop.interface clock-show-seconds true
+
 #自分でやることを表示
 echo "Tweaksからテーマのアプリケーション、カーソル、アイコンを選択してね"
 echo "ターミナルにの色や透過度を設定してね"
