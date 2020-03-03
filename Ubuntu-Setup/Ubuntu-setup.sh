@@ -177,3 +177,4 @@ echo "設定>オンラインアカウント>Googleを接続してGoogleDriveを�
 echo "https://karaas.hatenablog.jp/entry/2018/11/29/141733を参考にOnedriveも同期させてね"
 echo "sudo visudoを実行して Defaults        badpass_message="あんたに権限をあげるわけないでしょ！このバカっ"を追記してね"
 echo "Slack,Skypeのdebファイルをダウンロードしてきてインストールしてね"
+echo "ロック画面の背景画像を変更してね"
