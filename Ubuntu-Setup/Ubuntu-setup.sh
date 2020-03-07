@@ -179,6 +179,10 @@ sudo apt install nodejs yarn build-essential
 sudo apt install npm
 sudo npm install gtop -g
 
+#IPAフォントのインストール
+sudo apt install fonts-ipafont fonts-ipaexfont
+sudo fc-cache -fv
+
 #自分でやることを表示
 echo "Tweaksからテーマのアプリケーション、カーソル、アイコンを選択してね"
 echo "ターミナルにの色や透過度を設定してね"
