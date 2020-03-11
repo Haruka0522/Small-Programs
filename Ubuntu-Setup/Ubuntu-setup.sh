@@ -183,6 +183,9 @@ sudo npm install gtop -g
 sudo apt install fonts-ipafont fonts-ipaexfont
 sudo fc-cache -fv
 
+#pureプロンプトのインストール
+sudo npm install --global pure-prompt --allow-root --unsafe-perm=true
+
 #自分でやることを表示
 echo "Tweaksからテーマのアプリケーション、カーソル、アイコンを選択してね"
 echo "ターミナルにの色や透過度を設定してね"
