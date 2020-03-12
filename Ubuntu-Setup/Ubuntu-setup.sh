@@ -191,6 +191,9 @@ wget github.com/microsoft/VoTT/releases/download/v2.1.0/vott-2.1.0-linux.snap
 cd Downloads
 sudo snap install vott-2.1.0-linux.snap --dangerous
 
+#ffmpegのインストール
+sudo apt install ffmpeg
+
 #自分でやることを表示
 echo "Tweaksからテーマのアプリケーション、カーソル、アイコンを選択してね"
 echo "ターミナルにの色や透過度を設定してね"
