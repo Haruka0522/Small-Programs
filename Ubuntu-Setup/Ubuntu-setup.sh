@@ -194,6 +194,11 @@ sudo snap install vott-2.1.0-linux.snap --dangerous
 #ffmpegのインストール
 sudo apt install ffmpeg
 
+#boostnoteのインストール
+cd Downloads
+wget https://github.com/BoostIO/boost-releases/releases/download/v0.8.19/boostnote_0.8.19_amd64.deb
+sudo apt install ./boostnote_0.8.19_amd64.deb
+
 #自分でやることを表示
 echo "Tweaksからテーマのアプリケーション、カーソル、アイコンを選択してね"
 echo "ターミナルにの色や透過度を設定してね"
