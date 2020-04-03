@@ -15,7 +15,7 @@ git config --global color.ui "auto"
 
 #Vim
 sudo apt update
-sudo apt install vim
+sudo apt install vim-gtk
 wget https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh
 mkdir ./.vim/
 chmod +x ./installer.sh
