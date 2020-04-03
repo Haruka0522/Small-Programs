@@ -196,8 +196,8 @@ sudo apt install ffmpeg
 
 #boostnoteのインストール
 cd Downloads
-wget https://github.com/BoostIO/boost-releases/releases/download/v0.8.19/boostnote_0.8.19_amd64.deb
-sudo apt install ./boostnote_0.8.19_amd64.deb
+wget https://github.com/BoostIO/BoostNote.next/releases/download/v0.3.0/boost-note-linux.deb
+sudo apt install ./boost-note-linux.deb
 
 #自分でやることを表示
 echo "Tweaksからテーマのアプリケーション、カーソル、アイコンを選択してね"
