@@ -211,6 +211,10 @@ sudo add-apt-repository \
 sudo apt update
 sudo apt install -y docker-ce
 
+#Dockerをsudoなしで利用できるように
+sudo groupadd docker
+sudo usermod -aG docker $USER
+
 #自分でやることを表示
 echo "Tweaksからテーマのアプリケーション、カーソル、アイコンを選択してね"
 echo "ターミナルにの色や透過度を設定してね"
