@@ -200,6 +200,17 @@ wget https://github.com/BoostIO/BoostNote.next/releases/download/v0.3.0/boost-no
 sudo apt install ./boost-note-linux.deb
 cd ~
 
+#Dockerのインストール
+sudo apt install apt-transport-https ca-certificates software-properties-common curl
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo apt-key fingerprint 0EBFCD88
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+sudo apt update
+sudo apt install -y docker-ce
+
 #自分でやることを表示
 echo "Tweaksからテーマのアプリケーション、カーソル、アイコンを選択してね"
 echo "ターミナルにの色や透過度を設定してね"
