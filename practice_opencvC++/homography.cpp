@@ -1,19 +1,10 @@
-#include <cassert>
 #include <opencv2/opencv.hpp>
-#include <opencv2/core.hpp>
 #include <string>
-#include <cstdio>
-#include <cstring>
+#include <vector>
 #include <iostream>
 #include <sstream>
 #include <fstream>
 #include "json11.hpp"
-#include <list>
-#include <set>
-#include <vector>
-#include <unordered_map>
-#include <algorithm>
-#include <type_traits>
 
 //vectorもcoutできるようにするやつ
 template <class T>std::ostream &operator<<(std::ostream &o,const std::vector<T>&v)
@@ -32,14 +23,10 @@ cv::Mat _get_homography_matrix(json11::Json::array homography_data)
         dist_tmp.at(i) = cv::Point2f(homography_data.at(i)["dist"].array_items().at(0).int_value(),homography_data.at(i)["dist"].array_items().at(1).int_value());
     }
 
-    /*
     cv::Mat src_mat(src_tmp);
     cv::Mat dist_mat(dist_tmp);
-    cv::Mat src = src_mat.reshape(2,data_size);
-    cv::Mat dist = dist_mat.reshape(2,data_size);
-    */
-    std::cout << cv::format(src_tmp,cv::Formatter::FMT_PYTHON) << std::endl;
-    std::cout << cv::format(dist_tmp,cv::Formatter::FMT_PYTHON) << std::endl;
+    //std::cout << cv::format(src_tmp,cv::Formatter::FMT_PYTHON) << std::endl;
+    //std::cout << cv::format(dist_tmp,cv::Formatter::FMT_PYTHON) << std::endl;
     const cv::Mat H = cv::findHomography(src_tmp,dist_tmp,cv::RANSAC);
 
     return H;
@@ -66,7 +53,7 @@ cv::Mat transform_by_data(std::vector<cv::Point2f> pts, json11::Json::array homo
 {
     cv::Mat ret;
     cv::Mat H = _get_homography_matrix(homography_data);
-    std::cout << H << std::endl;
+    //std::cout << H << std::endl;
     cv::perspectiveTransform(pts, ret, H);
 
     return ret;
@@ -102,10 +89,11 @@ json11::Json::array read_json_obj(std::string path)
 int main()
 {
     json11::Json::array homography_data = read_json_obj("sample.json");
-    //cv::Mat pts = (cv::Mat_<double>(1, 1) << 234, 222);
+
+    //変換する座標
     std::vector<cv::Point2f> pts(1);
     pts.at(0) = cv::Point2f(200,200);
-    //pts.push_back(cv::Point2f(200,200));
+
     cv::Mat result = transform_by_data(pts, homography_data);
     std::cout << result << std::endl;
 }
