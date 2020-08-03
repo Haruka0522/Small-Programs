@@ -38,28 +38,50 @@ cv::Mat _get_homography_matrix(json11::Json::array homography_data)
     return H;
 }
 
-/*
-動作未確認
-int transform_by_camparam(const vector<cv::Point2f> pts,
-                              const cv::Mat K,
-                              const cv::Mat D,
-                              const cv::Mat P)
+std::vector<double> transform_by_camparam(const std::vector<cv::Point2f> pts,
+                                          const cv::Mat K,
+                                          const cv::Mat D,
+                                          const cv::Mat P)
 {
-    cv::Mat P_z0, P_z0_inv, dst, ixyz, wxyz;
-    P_z0 = P.resize(2);
+    cv::Mat P_z0, P_z0_inv, dst, wxyz_mat;
+    std::vector<double> ixyz, wxyz;
+
+    //Pythonの`np.delete(P,[2],axis=1)`の部分
+    //もしかしたらもっと綺麗に書く方法があるかも
+    for (int i = 0; i < 4; i++)
+    {
+        if (i == 2)
+            continue;
+        P_z0.push_back(P.col(i));
+    }
+    const std::vector<int> shape = {3, 3};
+    P_z0 = P_z0.reshape(1, shape);
+    P_z0 = P_z0.t();
     P_z0_inv = P_z0.inv();
     cv::undistortPoints(pts, dst, K, D, cv::noArray(), K);
-    std::cout << dst << std::endl;
 
-    return 1;
+    //型変換が無駄に多いのかも
+    //もしかしたらもっと綺麗に書く方法があるかも
+    dst = dst.reshape(1, 1);
+    dst.copyTo(ixyz);
+    ixyz.push_back(1.0);
+    cv::Mat ixyz_mat(ixyz, true);
+    ixyz_mat = ixyz_mat.reshape(1, 3);
+    P_z0_inv = P_z0_inv.reshape(1, 3);
+    wxyz_mat = P_z0_inv * ixyz_mat;
+    wxyz_mat.copyTo(wxyz);
+
+    std::vector<double> result;
+    result.push_back(wxyz.at(0) / wxyz.at(2));
+    result.push_back(wxyz.at(1) / wxyz.at(2));
+
+    return result;
 }
-*/
 
 cv::Mat transform_by_data(std::vector<cv::Point2f> pts, json11::Json::array homography_data)
 {
     cv::Mat ret;
     cv::Mat H = _get_homography_matrix(homography_data);
-    //std::cout << H << std::endl;
     cv::perspectiveTransform(pts, ret, H);
 
     return ret;
@@ -89,7 +111,6 @@ json11::Json::array read_json_obj(std::string path)
     std::string str_file = read_txt(path);
     std::string err;
     auto json = json11::Json::parse(str_file, err);
-    //std::cout << str_file << std::endl;
     return json.array_items();
 }
 
@@ -100,9 +121,22 @@ int main()
 
         //変換する座標
         std::vector<cv::Point2f> pts(1);
-        pts.at(0) = cv::Point2f(200, 200);
+        pts.at(0) = cv::Point2f(100, 100);
 
         cv::Mat result = transform_by_data(pts, homography_data);
+        std::cout << result << std::endl;
+    }
+
+    { //transform_by_camparam()のテスト
+        //変換する座標
+        std::vector<cv::Point2f> pts(1);
+        pts.at(0) = cv::Point2f(486, 342);
+
+        cv::Mat K = (cv::Mat_<double>(3, 3) << 734.69459519, 0, 484.51819542, 0, 733.98229803, 249.00882533, 0, 0, 1);
+        cv::Mat D = (cv::Mat_<double>(1, 5) << 0.06717359, -0.05946432, -0.00226853, 0.00100395, -0.17334176);
+        cv::Mat P = (cv::Mat_<double>(3, 4) << 779.441115, 358.391591, -196.369593, 6342.90297, -8.08916461, -68.7457744, -771.974088, 14644.9530, 0.101815604, 0.908825753, -0.404560668, 29.3131634);
+
+        std::vector<double> result = transform_by_camparam(pts, K, D, P);
         std::cout << result << std::endl;
     }
 }
