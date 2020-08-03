@@ -120,8 +120,7 @@ int main()
         json11::Json::array homography_data = read_json_obj("sample.json");
 
         //変換する座標
-        std::vector<cv::Point2f> pts(1);
-        pts.at(0) = cv::Point2f(100, 100);
+        std::vector<cv::Point2f> pts({cv::Point2f(100,100),});
 
         cv::Mat result = transform_by_data(pts, homography_data);
         std::cout << result << std::endl;
@@ -129,8 +128,7 @@ int main()
 
     { //transform_by_camparam()のテスト
         //変換する座標
-        std::vector<cv::Point2f> pts(1);
-        pts.at(0) = cv::Point2f(486, 342);
+        std::vector<cv::Point2f> pts({cv::Point2f(486,342),});
 
         cv::Mat K = (cv::Mat_<double>(3, 3) << 734.69459519, 0, 484.51819542, 0, 733.98229803, 249.00882533, 0, 0, 1);
         cv::Mat D = (cv::Mat_<double>(1, 5) << 0.06717359, -0.05946432, -0.00226853, 0.00100395, -0.17334176);
