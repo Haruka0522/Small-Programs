@@ -1,5 +1,9 @@
-# コンパイラを指定
-CC :=clang++
+# コンパイラを指定(Macはclang++,Linuxはg++)
+ifeq ($(shell uname),Linux)
+	CC := g++
+else
+	CC := clang++
+endif
 
 # インクルードファイル等
 CFLAGS :=`pkg-config opencv4 --cflags` `pkg-config opencv4 --libs` -std=c++11
